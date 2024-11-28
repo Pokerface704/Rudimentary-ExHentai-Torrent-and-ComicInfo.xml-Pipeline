@@ -6,13 +6,17 @@ import rarfile
 import shutil
 
 
-# def delete_non_zip_files(main_folder):
-#    for root, _, files in os.walk(main_folder):
-#        for file in files:
-#            file_path = os.path.join(root, file)
-#            if not file.endswith('.zip'):
-#                os.remove(file_path)
-#                print(f"Deleted: {file_path}")
+def delete_non_zip_files(main_folder):
+    for root, _, files in os.walk(main_folder):
+        if str(os.path.join(main_folder)) == str(os.path.join(root)):
+            print("Skipping main folder: ", main_folder)
+            continue
+
+        for file in files:
+            file_path = os.path.join(root, file)
+            if not file.endswith('.zip'):
+                os.remove(file_path)
+                print(f"Deleted: {file_path}")
 
 
 def extract_archives_in_folder(main_folder):
@@ -156,8 +160,8 @@ def main():
     print("Processing subdirectories...")
     process_subdirectories(main_folder)
 
-    # print("Deleting all files that are not .zip...")
-    # delete_non_zip_files(main_folder)
+    print("Deleting all files that are not .zip...")
+    delete_non_zip_files(main_folder)
 
     print("Done!")
 
