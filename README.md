@@ -1,5 +1,5 @@
-# Info
-A rudimentary pipeline for extracting a bunch of `.zip`/`.rar` archives (presumably torrents from ExHentai), converting them to [Mihon](https://mihon.app/)'s required file structure and afterwards (re)attaching metadata to the extracted mangas.
+# Rudimentary ExHentai Torrent and ComicInfo.xml Pipeline to Comply With Mihon’s Local File Structure
+A rudimentary pipeline for extracting a bunch of `.zip`/`.rar` archives (presumably torrents from ExHentai), converting them to [Mihon](https://mihon.app/)'s required local file structure and afterwards (re)attaching metadata to the extracted mangas.
 
 ## Brief summary of individual files
 1. Select a folder. All .zip and .rar archives will be extracted into corresponding subdirectories (if already present, skip archive). All files will be flattened (if subdirectories present, their content will be put into the root of the extraction folder). All filetypes will be listed (`.png`, `.jpg`, ...) with the manual option to delete unwanted ones (f. e. `.txt`, `.json`, ...). After that all extracted files will be compressed again to `Chapter.zip` and all files that are not .zip will be deleted from each subdirectory again. After that the empty files `.nomedia` and `.noxml` are added.
